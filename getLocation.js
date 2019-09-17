@@ -14,7 +14,8 @@ const getLocation = async (place) => {
         return({
             name: data.body.features[0].place_name,
            lat: data.body.features[0].center[0],
-           long: data.body.features[0].center[1]
+           long: data.body.features[0].center[1],
+           
         })
     } catch (error) {
         console.log("oops there's been a problem")

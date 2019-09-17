@@ -12,7 +12,8 @@ const getWeather = async (locationData) => {
     try {
         let data = await promisifiedRequest({url:`https://api.darksky.net/forecast/${apikey}/${locationData.long}, ${locationData.lat}`, 
     json: true })
-    return(data.body.currently.temperature)
+    return(
+        data.body.currently)
     } catch (error) {
         console.log("oops there's been a problem")
         

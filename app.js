@@ -4,6 +4,8 @@ const {getLocation} = require('./getLocation')
 const main = async (place) => {
     const location = await getLocation(place)
     const weather = await getWeather(location)
-    console.log(weather)
+    const celsius = Math.round((weather.temperature-32)*5/9)
+
+    console.log(`The temperature in ${location.name} is ${celsius}°C and the probability of rain is ${weather.precipProbability*100}%`)
 }
 main()
