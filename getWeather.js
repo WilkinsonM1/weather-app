@@ -6,16 +6,20 @@ const {promisify} = require('util')
 
 const promisifiedRequest = promisify(request)
 
-const getWeather = async () => {
+
+
+const getWeather = async (locationData) => {
     try {
-        let data = await promisifiedRequest({url:`https://api.darksky.net/forecast/${apikey}/37.8267,-122.4233`, 
+        let data = await promisifiedRequest({url:`https://api.darksky.net/forecast/${apikey}/${locationData.long}, ${locationData.lat}`, 
     json: true })
-    console.log(data.body.currently.temperature)
+    return(data.body.currently.temperature)
     } catch (error) {
         console.log("oops there's been a problem")
         
     }
 }
+
+
 
 
 
