@@ -1,12 +1,14 @@
-const request = require('request')
+const {getWeather} = require('./getWeather')
 
-const apikey = "d4b693d843f9b93d20786aae043796d4"
-
-request({url:"https://api.darksky.net/forecast/d4b693d843f9b93d20786aae043796d4/37.8267,-122.4233" }, (error,response) =>{
-    if(error){
-        console.log(error)
-    }else{
-        const data = JSON.parse(response.body)
-        console.log({temp: data.currently.temperature})
-    }
-})
+const main = () => {
+    getWeather()
+}
+main()
+// request({url:`https://api.darksky.net/forecast/${apikey}/37.8267,-122.4233`, json: true }, (error,response) =>{
+//     if(error){
+//         console.log(error)
+//     }else{
+//         const data = response.body
+//         console.log({temp: data.currently.temperature})
+//     }
+// })
